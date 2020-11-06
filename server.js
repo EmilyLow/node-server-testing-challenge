@@ -23,6 +23,8 @@ server.use((err, req, res, next) => {
 server.post("/test", async (req, res) => {
     try {
 		const data = await db("testData").insert(req.body)
+		console.log("Post body", req.body)
+		console.log("data")
 		res.status(201).json(data)
 	} catch (err) {
 		next(err)
